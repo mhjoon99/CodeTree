@@ -1,10 +1,8 @@
 N = int(input())
-i = 1
 cnt = 0
 
-while N > 1:
-    N /= i
-    i += 1
+for i in range(1, 5000):
+    N = N // i
     cnt += 1
-
-print(cnt)
+    if N <= 1:
+        break
