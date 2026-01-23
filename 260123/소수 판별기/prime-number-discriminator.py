@@ -1,7 +1,7 @@
 N = int(input())
 result = 0
 
-for i in range(1, N+1):
+for i in range(2, N):
     if N % i == 0:
         result = 1
         break
