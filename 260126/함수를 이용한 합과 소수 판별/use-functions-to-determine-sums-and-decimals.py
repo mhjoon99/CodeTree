@@ -1,21 +1,38 @@
 a, b = map(int, input().split())
 
 # Please write your code here.
-def judge_nums(a, b):
-    cnt = 0
-    for i in range(a, b+1):
-        total = 0
-        flag = 1    # 소수라면
-        num_list = list(map(int, str(i)))    # 각 자리수 합
-        total += sum(num_list) 
-        for j in range(2, i):   # 소수 판별
-            if i % j == 0:
-                flag = 0    # 소수가 아님
-                break
-        if flag == 1 and total % 2 == 0:
-            cnt += 1
+# 소수인지 반환하는 함수
+def is_prime(n):
+    if n == 1:
+        return False
     
-    return cnt
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    
+    return True
 
-result = judge_nums(a, b)
-print(result)
+# 자릿수 합이 짝수인지 반환하는 함수
+def is_digit_sum_even(n):
+    num_list = list(map(int, str(n)))
+    digit_sum = sum(num_list)
+
+    if digit_sum % 2 == 0:
+        return True
+    
+    return False
+
+# 소수와 자릿수 합이 짝수인지 판별하는 함수
+def judge_num(n):
+    if is_prime(n) and is_digit_sum_even(n):
+        return True
+    
+    return False
+
+cnt = 0
+
+for i in range(a, b+1):
+    if judge_num(i):
+        cnt += 1
+
+print(cnt)
