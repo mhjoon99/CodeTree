@@ -9,7 +9,7 @@ def calculator(a, o, c):
     elif o == '-':
         return a - c
     elif o == '/':
-        return a / c
+        return a // c
     elif o == '*':
         return a * c
     else:
